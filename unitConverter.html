@@ -72,7 +72,7 @@
         }
 
         function App() {
-            const [index, setIndex] = React.useState("0");
+            const [index, setIndex] = React.useState("x");
             const onSelect = (event) => {
                 setIndex(event.target.value);
             }
@@ -80,12 +80,14 @@
                 <div>
                     <h1>변환기</h1>
                     <select onChange={onSelect} value={index}>
+                        <option value="x">선택</option>
                         <option value="0">Minutes & Hours</option>
                         <option value="1">KM & Miles</option>
                     </select>
                     <hr></hr>
-                    {index === "0" ? <MinutesToHours /> : null}
-                    {index === "1" ? <KmToMiles /> : null}
+                    {index === "x" ? "선택" : null};
+                    {index === "0" ? <MinutesToHours /> : null};
+                    {index === "1" ? <KmToMiles /> : null};
                 </div>
             );
         }
