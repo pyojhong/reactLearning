@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.querySelector('#root');
+        function App() {
+            // React.useState()는 console.log 로 볼 경우 배열의 형태로 [값, 함수] 가 들어갈 수 있게끔 되어 있다.
+            // 자바스크립트 문법 중 배열의 이름을 변수에 담는 방법이 [name, age] = [30, "John"] 과 같은 방식으로 쓸 수 있다.
+            // 이 경우 const age = person[0], const name = person[1] 보다 간결하고 가독성이 좋아진다.
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                // setCounter(counter + 1);  -> 이 방법은 직접적으로 변수를 바꾸기에 조금 위험할 수도 있음.
+                // setCounter 로 지정한 함수는 counter 로 지정한 값을 바꾸게 된다.
+                // 또한 화면을 즉시 리렌더링 해준다.
+                setCounter((current) => current + 1);
+            };
+        return (
+            <div>
+                <h3>총 클릭: {counter}</h3>
+                <button onClick={onClick}>버튼</button>
+            </div>
+        )};
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>

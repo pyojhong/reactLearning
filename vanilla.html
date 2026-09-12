@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>총 클릭 횟수: 0</span>
+    <button id="button">클릭</button>
+    <script>
+        let counter = 0;
+        const span = document.querySelector('span');
+        const button = document.querySelector('#button');
+        function handleClick() {
+            console.log("클릭");
+            counter = counter + 1;
+            span.innerText = `총 클릭 횟수: ${counter}`;
+        }
+        button.addEventListener("click", handleClick);
+    </script>
+</body>
+</html>

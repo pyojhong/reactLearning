@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basic Form</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script>
+        // React Import
+        // React 는 HTML 에 요소를 쓰는 것이 아닌 JS 를 이용해서 그려냄
+        // React JS 는 요소가 반응형으로 동작하게 만들어주는 것이고
+        // React0dm 은 라이브러리인데, 리액트 요소를 HMTL 요소에 둘 수 있게 하는 것임.
+        const root = document.querySelector('#root');
+        const h3 = React.createElement(
+            'h3',
+            { 
+                id: "id-span",
+                style: {color: "red"}, 
+                onMouseEnter: () => console.log('마우스 엔터'),
+            },
+             "Hello, I am a span"
+             );
+        const btn = React.createElement('button', {
+            onClick: () => console.log("클릭"),
+        }, "클릭");
+        const container = React.createElement('div', null, [h3, btn]);
+        ReactDOM.render(container, root); // React 요소를 그려내서 화면에 띄움
+    </script>
+</body>
+
+</html>
