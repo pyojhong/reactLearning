@@ -20,16 +20,18 @@
                     padding: "10px 20px",
                     border: 0, 
                     borderRadius: 10,
-                }}>{props.customText}</button>
+                }} onClick={props.onClick}>{props.customText}</button>
             );
         };
         const App = () => {
+            const [value, setValue] = React.useState("변경 저장");
+            const changeValue = () => setValue("변경 되돌리기");
             return (
                     // 내가 만든 함수이기 때문에 인자를 내 마음대로 받을 수 있게 한다.
                     // 따라서 customText는 내가 만든 값이고, 이를 저장하기 위해서는 Btn 함수를 불러오는 식과 동일하다.
                     // Btn({customText: "저장"}) 의 식으로 전달한다.
                 <div>
-                    <Btn customText="저장"/>
+                    <Btn customText={value} onClick={changeValue}/>
                     <Btn customText="확인"/>
                 </div>
             );
