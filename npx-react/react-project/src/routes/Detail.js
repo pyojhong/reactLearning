@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // 파라미터로 전달되는 값을 확인할 수 있는 기능
+import styles from '../styles/Detail.module.css';
 
 function Detail() {
     const [loading, setLoading] = useState(true);
